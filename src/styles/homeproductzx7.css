@@ -1,0 +1,44 @@
+.home-zx7-container {
+    display: flex;
+    position: relative;
+    border-radius: 0.8rem;
+    width: 100%;
+    height: 32rem;
+}
+
+.home-zx7-image {
+    width: 100%;
+}
+
+.home-zx7-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+}
+
+.home-zx7-details {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin-left: 10rem;
+}
+
+.home-zx7-information {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .home-zx7-details {
+        margin-left: 6.2rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .home-zx7-details {
+        margin-left: 2.5rem;
+    }
+}

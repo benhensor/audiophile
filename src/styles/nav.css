@@ -1,0 +1,34 @@
+.navbar-list {
+	display: flex;
+	gap: 3.4rem;
+	list-style: none;
+    color: var(--light);
+}
+
+.navbar-list-item {
+    font-size: 13px;
+    font-weight: var(--fwBold);
+    line-height: 2.5rem;
+    letter-spacing: 0.1rem;
+    color: var(--light);
+    cursor: pointer;
+    transition: var(--fast);
+}
+
+.navbar-list-item button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    color: var(--light);
+    cursor: pointer;
+    transition: var(--fast);
+}
+
+
+@media screen and (max-width: 451px) {
+    .navbar-list {
+        flex-direction: column;
+        gap: 1.6rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,109 @@
+.home-zx9-speaker {
+    background-image: url('../assets/home/desktop/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-position: -15rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 59rem;
+    width: 100%;
+    background-color: var(--orange);
+    border-radius: 0.8rem;
+    color: var(--light);
+    overflow: hidden;
+}
+
+.home-zx9-speaker-image {
+    position: relative;
+}
+
+.home-zx9-speaker-image img {
+    position: absolute;
+    bottom: -1.3rem;
+    left: 12rem;
+    width: 41rem;
+}
+
+.home-zx9-speaker-details {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.home-zx9-speaker-information {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 10%;
+}
+
+@media screen and (max-width: 1109px) {
+    .home-zx9-speaker-image img {
+        position: absolute;
+        bottom: -1.3rem;
+        left: 4rem;
+        width: 38rem;
+    }
+}
+
+@media screen and (max-width: 822px) {
+    .home-zx9-speaker-image img {
+        left: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .home-zx9-speaker {
+        height: 100%;
+        background-position: 50% -30rem;
+        height: 80rem;
+        grid-template-columns: 1fr;
+    }
+
+    .home-zx9-speaker-image img {
+
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -8rem;
+        width: 20rem;
+    }
+
+    .home-zx9-speaker-details {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-zx9-speaker-information {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .home-zx9-speaker {
+        background-size: 90%;
+        align-items: center;
+    }
+
+    .home-zx9-speaker-image img {
+        bottom: -17rem;
+    }
+
+    .home-zx9-speaker-details {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-zx9-speaker-information {
+        padding: 0 2rem;
+    }
+
+    .home-zx9-speaker-information h1 {
+        font-size: 4rem;
+        line-height: 4.4rem;
+    }
+}

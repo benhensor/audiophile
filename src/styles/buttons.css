@@ -1,0 +1,47 @@
+.button1,
+.button2,
+.button3 {
+    width: 16rem;
+    height: 4.8rem;
+    text-transform: uppercase;
+    font-size: var(--subtitle);
+    font-weight: var(--fwBold);
+    transition: var(--buttonTransition);
+    cursor: pointer;
+}
+
+.button1 {
+    border: none;
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.button1:hover {
+    background-color: var(--ltOrange);
+}
+
+.button2 {
+    border: 1px solid var(--dark);
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+.button2:hover {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.button3 {
+    border: none;
+    background-color: transparent;
+    color: var(--grey);
+}
+
+.button3:hover {
+    color: var(--orange);
+}
+
+.button3 svg {
+    margin-left: 1.6rem;
+    fill: var(--orange);
+}
