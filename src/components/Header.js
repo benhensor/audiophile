@@ -7,6 +7,7 @@ import { ReactComponent as Menu } from '../assets/shared/tablet/icon-hamburger.s
 import { ReactComponent as Close } from '../assets/shared/tablet/icon-close.svg'
 import { ReactComponent as Cart } from '../assets/shared/desktop/icon-cart.svg'
 import UseMediaQuery from '../hooks/UseMediaQuery'
+import '../styles/nav.css'
 import '../styles/header.css'
 
 const Header = () => {
