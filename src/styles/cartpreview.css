@@ -1,14 +1,16 @@
 .cart-preview {
     position: block;
+    color: var(--dark);
 }
 
 .cart-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     right: 0;
-    top: 12rem;
+    top: 8rem;
     width: 37.7rem;
-    height: 48.8rem;
     background-color: var(--white);
     border-radius: 10px;
     font-family: var(--ff-kumbh);
@@ -18,6 +20,107 @@
     margin-right: 5%;
 }
 
+.cart-header-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+}
+
+.cart-header button {
+    background-color: transparent;
+    border: none;
+    color: var(--grey);
+    font-size: var(--p);
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+
+.cart-item-details {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.cart-item-details img {
+    width: 6.4rem;
+    object-fit: cover;
+}
+
+.cart-item-details-text h6 {
+    font-size: var(--p);
+}
+
+.cart-item-details-text p {
+    font-size: var(--overline);
+    color: var(--grey);
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.item-add-subtract {
+    display: flex;
+    align-items: center;
+    background-color: var(--light);
+    height: 3.2rem;
+}
+
+.item-add-subtract button {
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    color: var(--grey);
+    font-size: var(--p);
+    width: 3.5rem;
+}
+
+.item-add-subtract button:hover {
+    color: var(--orange);
+}
+
+.item-add-subtract p {
+    text-align: center;
+    width: 2.6rem;
+
+}
+
+.cart-total {
+    margin-top: 3.2rem;
+}
+
+.cart-total-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+}
+
+.cart-total h6 {
+    font-size: var(--p);
+    color: var(--grey);
+}
+
 @media screen and (max-width: 768px) {
     .cart-preview {
         width: 100%;
@@ -25,7 +128,7 @@
 
     .cart-container {
         width: 32.7rem;
-
+        right: 50%;
     }
 }
 

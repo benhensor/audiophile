@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Nav from './Nav'
 import { Link } from 'react-router-dom'
 import CartPreview from './CartPreview'
+import { useCart } from '../context/CartItems'
 import { ReactComponent as Logo } from '../assets/shared/desktop/logo.svg'
 import { ReactComponent as Menu } from '../assets/shared/tablet/icon-hamburger.svg'
 import { ReactComponent as Close } from '../assets/shared/tablet/icon-close.svg'
@@ -16,6 +16,19 @@ const Header = () => {
 
     const showControls = UseMediaQuery('(max-width: 1439px)').matches;
 
+    const { cartItems } = useCart()
+
+    const tabs = [
+        {name: 'Home',path: '/'},
+        {name: 'Headphones',path: '/category/headphones'},
+        {name: 'Speakers',path: '/category/speakers'},
+        {name: 'Earphones',path: '/category/earphones'}
+    ]
+
+    const handleClick = () => {
+        setIsMenuOpen(false)
+    }
+
     return (
         <header>
             <div className="header-container">
@@ -28,14 +41,30 @@ const Header = () => {
                 <Link to='/' className='header-logo'>
                     <Logo />
                 </Link>
-                <div className={`header-navbar ${isMenuOpen ? 'visible' : ''}`}><Nav /></div>
+
+                <div className={`header-navbar ${isMenuOpen ? 'visible' : ''}`}>
+                    <nav className='navbar'>
+                        <ul className='navbar-list'>
+                            {tabs.map(tab => {
+                                return (
+                                    <li className='navbar-list-item' key={tab.name}>
+                                        <button onClick={handleClick}><Link to={tab.path}>{tab.name}</Link></button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </nav>
+                </div>
+
                 <div className="header-cart-container">
                     <button className='header-cart' onClick={() => setIsCartOpen(!isCartOpen)} >
                         <Cart className='icon-cart'/>
-                        <p className='header-cart-quantity'>9</p>
+                        <p className='header-cart-quantity'>{cartItems.length}</p>
                     </button>
                     {isCartOpen && (
-                        <CartPreview />   
+                        <div className='header-cart-preview-container'>
+                            <CartPreview setIsCartOpen={setIsCartOpen}/>
+                        </div>
                     )}
                 </div>
             </div>

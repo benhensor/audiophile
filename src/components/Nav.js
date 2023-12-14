@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/nav.css'
 
-const Nav = () => {
+const Nav = ({ setIsMenuOpen }) => {
 
     const tabs = [
         {name: 'Home',path: '/'},
@@ -11,18 +11,22 @@ const Nav = () => {
         {name: 'Earphones',path: '/category/earphones'}
     ]
 
+    const handleClick = () => {
+        setIsMenuOpen(false)
+    }
+
     return (
         <nav className='navbar'>
             <ul className='navbar-list'>
                 {tabs.map(tab => {
                     return (
                         <li className='navbar-list-item' key={tab.name}>
-                            <button><Link to={tab.path}>{tab.name}</Link></button>
+                            <button onClick={handleClick}><Link to={tab.path}>{tab.name}</Link></button>
                         </li>
                     )
                 })}
             </ul>
-         </nav>
+        </nav>
     )
 }
 

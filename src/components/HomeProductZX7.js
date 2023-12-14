@@ -28,7 +28,7 @@ const HomeProductZX7 = ({ products }) => {
             <div className="home-zx7-details">
                 <div className='home-zx7-information'>
                     <h4>{products[4].slug}</h4>
-                    <Button2 />
+                    <Button2 to={`/product/${products[4].name}`}/>
                 </div>
             </div>
         </div>

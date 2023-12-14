@@ -14,6 +14,7 @@
 	--black: #000000;
 
 	--headerBg: #0e0e0e;
+	--bodyBG: #f2f2f2;
 
 	/* FONTS */
 
@@ -68,7 +69,7 @@ body {
 	font-weight: var(--fwRegular);
 	font-size: 1.5rem;
 	line-height: 2.5rem;
-	background-color: var(--dark);
+	background-color: var(--bodyBG);
 }
 
 h1,
@@ -122,6 +123,10 @@ p {
 	font-size: var(--p);
 	line-height: 2.5rem;
 	letter-spacing: 0.1rem;
+}
+
+img {
+	border-radius: 0.8rem;
 }
 
 .overline {

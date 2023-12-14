@@ -14,13 +14,10 @@ const CategoryPage = ({ products }) => {
 
     const getCategoryImage = (product) => {
         if (isDesktop) {
-            console.log(product.categoryImage.desktop)
             return product.categoryImage.desktop
         } else if (isTablet) {
-            console.log(product.categoryImage.tablet)
             return product.categoryImage.tablet
         } else if (isMobile) {
-            console.log(product.categoryImage.mobile)
             return product.categoryImage.mobile
         }
     }
@@ -30,10 +27,9 @@ const CategoryPage = ({ products }) => {
     const filteredProducts = products.filter(product => product.category === categoryName)
     const reversedProducts = filteredProducts.reverse()
 
-    console.log(filteredProducts[0].categoryImage.desktop)
-
     return (
         <div className='category-page'>
+            <div className="category-backdrop"></div>
             <div className="category-header">
                 <h2>{categoryName}</h2>
             </div>
@@ -49,7 +45,7 @@ const CategoryPage = ({ products }) => {
                                     {product.new && <div className="overline">New Product</div>}
                                     <h2>{product.name}</h2>
                                     <p>{product.description}</p>
-                                    <Button1 />
+                                    <Button1 to={`/product/${product.name}`}/>
                                 </div>
                                 
                             </div>

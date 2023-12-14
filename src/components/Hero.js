@@ -4,6 +4,8 @@ import '../styles/hero.css'
 
 const Hero = ({ products }) => {
 
+    const productName = products[3].name
+
     return (
         <section className='hero'>
             <div className='hero-container'>
@@ -12,7 +14,7 @@ const Hero = ({ products }) => {
                         <span className='hero-subtitle'>New Product</span>
                         <h1>{products[3].name}</h1>
                         <p>{products[3].description}</p>
-                        <Button1 />
+                        <Button1 to={`/product/${productName}`}/>
                     </div>
                     
                 </div>

@@ -56,6 +56,13 @@ header {
         text-align: left;
 }
 
+.header-cart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .header-cart {
     display: flex;
     align-items: center;

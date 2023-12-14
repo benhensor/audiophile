@@ -11,6 +11,7 @@ const HomeCategories = () => {
         { name: 'earphones', image: '/images/shared/desktop/image-category-thumbnail-earphones.png' },
     ]
 
+
     return (
         <div className="home-categories-container">
             <div className="home-categories">
@@ -18,7 +19,7 @@ const HomeCategories = () => {
                     <div key={index} className='home-category'>
                         <img className='home-category-image' src={category.image} alt={category.name} />
                         <h6>{category.name}</h6>
-                        <Button3 />
+                        <Button3 to={`/category/${category.name}`}/>
                     </div>
                 ))}
             </div>

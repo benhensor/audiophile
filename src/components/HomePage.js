@@ -13,6 +13,7 @@ const HomePage = ({ products }) => {
 
     return (
         <section className='home'>
+            <div className="home-backdrop"></div>
             <Hero products={products} />
             <div className="home-container">
 

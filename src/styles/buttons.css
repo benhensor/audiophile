@@ -1,8 +1,12 @@
 .button1,
 .button2,
-.button3 {
+.button3,
+.button4,
+.button5,
+.button6,
+.button7 {
     width: 16rem;
-    height: 4.8rem;
+    min-height: 4.8rem;
     text-transform: uppercase;
     font-size: var(--subtitle);
     font-weight: var(--fwBold);
@@ -32,6 +36,7 @@
 }
 
 .button3 {
+    position: relative;
     border: none;
     background-color: transparent;
     color: var(--grey);
@@ -42,6 +47,37 @@
 }
 
 .button3 svg {
+    position: absolute;
     margin-left: 1.6rem;
     fill: var(--orange);
+    transition: var(--buttonTransition);
+}
+
+.button3:hover svg {
+    margin-left: 2.8rem;
+}
+
+.button4 {
+    border: none;
+    background-color: var(--orange);
+    color: var(--light);
+}
+
+.button4:hover {
+    background-color: var(--ltOrange);
+}
+
+.button5,
+.button6,
+.button7 {
+    width: 100%;
+    border: none;
+    color: var(--light);
+    background-color: var(--orange);
+}
+
+.button5:hover,
+.button6:hover,
+.button7:hover {
+    background-color: var(--ltOrange);
 }

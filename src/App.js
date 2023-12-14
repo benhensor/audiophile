@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HomePage from './components/HomePage'
 import CategoryPage from './components/CategoryPage'
+import ProductPage from './components/ProductPage'
+import Checkout from './components/Checkout'
 import Footer from './components/Footer'
 import { CartProvider } from './context/CartItems'
 import { ProductsProvider } from './context/Products'
@@ -44,6 +46,8 @@ function App() {
                         <Routes>
                             <Route exact path="/" element={<HomePage products={products} />} />
                             <Route exact path="/category/:categoryName" element={<CategoryPage products={products} /> } />
+                            <Route exact path="/product/:productName" element={<ProductPage products={products} /> } />
+                            <Route exact path="/checkout" element={<Checkout />} />
                         </Routes>
                         
                         </div>

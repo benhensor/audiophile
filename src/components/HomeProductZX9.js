@@ -29,7 +29,7 @@ const HomeProductZX9 = ({ products }) => {
                 <div className='home-zx9-speaker-information'>
                     <h1>{products[5].slug}</h1>
                     <p>{products[5].description}</p>
-                    <Button2 />
+                    <Button2 to={`/product/${products[5].name}`}/>
                 </div>
             </div>
         </div>
