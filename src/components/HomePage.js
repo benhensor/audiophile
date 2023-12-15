@@ -9,7 +9,13 @@ import '../styles/homepage.css'
 
 const HomePage = ({ products }) => {
 
-    if (!products || products.length === 0) return <p>Loading...</p>;
+    if (!products || products.length === 0) {
+        return (
+            <div className="centered-message">
+                <p>Loading...</p>
+            </div>
+        );
+    }
 
     return (
         <section className='home'>

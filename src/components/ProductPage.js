@@ -14,18 +14,35 @@ const ProductPage = ({ products }) => {
     const navigate = useNavigate()
 
     const { addItem } = useCart()
-
     const { productName } = useParams()
-    const productsArray = products.filter(product => product.name === productName)
-    const product = productsArray.length > 0 ? productsArray[0] : null
+    const [product, setProduct] = useState(() => {
+        const savedProduct = localStorage.getItem('product')
+        return savedProduct ? JSON.parse(savedProduct) : null
+    })
+
+    useEffect(() => {
+        if (products && Array.isArray(products)) {
+            const foundProduct = products.find(product => product.name === productName)
+            if (foundProduct) {
+                setProduct(foundProduct)
+                localStorage.setItem('product', JSON.stringify(foundProduct))
+            }
+        }
+    }, [productName, products])
 
     const [quantity, setQuantity] = useState(0)
 
     useEffect(() => {
         setQuantity(0)
-    }, [productName])
+    }, [product])
 
-    if (!product) return <p>Product not found...</p>;
+    if (!product) {
+        return (
+            <div className="centered-message">
+                {products && Array.isArray(products) ? <p>Product not found...</p> : <p>Loading...</p>}
+            </div>
+        );
+    }
 
     const isDesktop = UseMediaQuery('(min-width: 1024px)').matches;
     const isTablet = UseMediaQuery('(min-width: 376px) and (max-width: 1023px)').matches;
@@ -126,7 +143,7 @@ const ProductPage = ({ products }) => {
                         <ul>
                             {product.includes && product.includes.map((item, index) => {
                                 return (
-                                    <li key={index}><span>{item.quantity}x</span> {item.item}</li>
+                                    <li key={index}><span>{item.quantity} x</span> {item.item}</li>
                                 )
                             })}
                         </ul>

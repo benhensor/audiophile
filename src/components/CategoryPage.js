@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import HomeCategories from './HomeCategories'
 import BestGear from './BestGear'
 import { Button1 } from './Buttons'
@@ -8,9 +8,22 @@ import '../styles/categorypage.css'
 
 const CategoryPage = ({ products }) => {
 
-    const isDesktop = UseMediaQuery('(min-width: 1024px)').matches;
-    const isTablet = UseMediaQuery('(min-width: 376px) and (max-width: 1023px)').matches;
-    const isMobile = UseMediaQuery('(max-width: 375px)').matches;
+    const { categoryName: urlCategoryName } = useParams()
+    const [categoryName, setCategoryName] = useState(() => {
+        const savedCategory = localStorage.getItem('currentCategory')
+        return savedCategory || urlCategoryName
+    })
+
+    useEffect(() => {
+        if (urlCategoryName) {
+            setCategoryName(urlCategoryName);
+            localStorage.setItem('currentCategory', urlCategoryName)
+        }
+    }, [urlCategoryName])
+
+    const isDesktop = UseMediaQuery('(min-width: 1024px)').matches
+    const isTablet = UseMediaQuery('(min-width: 376px) and (max-width: 1023px)').matches
+    const isMobile = UseMediaQuery('(max-width: 375px)').matches
 
     const getCategoryImage = (product) => {
         if (isDesktop) {
@@ -22,9 +35,10 @@ const CategoryPage = ({ products }) => {
         }
     }
 
-    const { categoryName } = useParams()
-
-    const filteredProducts = products.filter(product => product.category === categoryName)
+    let filteredProducts = []
+    if (products && Array.isArray(products)) {
+        filteredProducts = products.filter(product => product.category === categoryName)
+    }
     const reversedProducts = filteredProducts.reverse()
 
     return (

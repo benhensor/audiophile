@@ -13,6 +13,7 @@ const Checkout = () => {
 
     const [payMethod, setPayMethod] = useState('eMoney')
     const [isOrderConfirmedOpen, setIsOrderConfirmedOpen] = useState(false)
+    const [formErrors, setFormErrors] = useState({});
 
     const handleEditItemName = (name) => {
         const suffixes = /Headphones|Speaker|Wireless Earphones/gi;
@@ -44,13 +45,80 @@ const Checkout = () => {
     const vat = calculateVAT()
     const grandTotal = calculateGrandTotal()
 
-    const handlePayment = () => {
-        setIsOrderConfirmedOpen(true)
+    const handlePayment = (e) => {
+        e.preventDefault(); 
+    
+        const formValues = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value,
+            postcode: document.getElementById('postcode').value,
+            city: document.getElementById('city').value,
+            country: document.getElementById('country').value,
+        }
+
+        const errors = validate(formValues)
+        setFormErrors(errors)
+    
+        if (Object.keys(errors).length === 0) {
+            setIsOrderConfirmedOpen(true);
+        }
     }
 
     const handleClose = () => {
         setIsOrderConfirmedOpen(false)
     }
+
+    const validate = (values) => {
+        const errors = {};
+    
+        if (!values.name) {
+          errors.name = "Required";
+        } else if (values.name.length > 15) {
+          errors.name = "Must be 15 characters or less";
+        }
+    
+        if (!values.phone) {
+          errors.phone = "Required";
+        } else if (!/^\d{9,16}/g.test(values.phone)) {
+          errors.phone = "Invalid phone number";
+        }
+    
+        if (!values.email) {
+          errors.email = "Required";
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+        ) {
+          errors.email = "Invalid email address";
+        }
+    
+        if (!values.address) {
+          errors.address = "Required";
+        } else if (values.address.length < 10) {
+          errors.address = "Invalid address";
+        }
+    
+        if (!values.postcode) {
+            errors.postcode = "Required";
+        } else if (!/^(GIR ?0AA|[A-Z]{1,2}[0-9][0-9A-Z]? ?[0-9][A-Z]{2})$/i.test(values.postcode)) {
+            errors.postcode = "Invalid postcode";
+        }
+    
+        if (!values.city) {
+          errors.city = "Required";
+        } else if (!/^[A-Za-z\s]{4,26}$/.test(values.city)) {
+          errors.city = "Invalid city";
+        }
+    
+        if (!values.country) {
+          errors.country = "Required";
+        } else if (!/^[A-Za-z\s]{4,56}$/.test(values.country)) {
+          errors.country = "Invalid country";
+        }
+    
+        return errors;
+      };
 
 
     return (
@@ -66,47 +134,61 @@ const Checkout = () => {
 
                         <div className="checkout-form">
 
-                            <form action="">
+                            <form action="" onSubmit={handlePayment}>
                                 <h6 className='checkout-subtitle'>Billing Details</h6>
                                 <div className="form-grid">
                                     <div className="checkout-form-group">
                                         <label htmlFor="name">Name</label>
-                                        <input type="text" id='name' name='name' placeholder='' required/>
+                                        {formErrors.name && <span className="error-message">{formErrors.name}</span>}
+                                        <input type="text" id='name' name='name' className={formErrors.name ? 'error' : ''} placeholder='' required/>
+                                        
                                     </div>
                                     <div className="checkout-form-group">
                                         <label htmlFor="email">Email Address</label>
-                                        <input type="email" id='email' name='email'/>
+                                        {formErrors.name && <span className="error-message">{formErrors.email}</span>}
+                                        <input type="email" id='email' name='email' className={formErrors.email ? 'error' : ''} />
+                                       
                                     </div>
                                     <div className="checkout-form-group">
                                         <label htmlFor="phone">Phone Number</label>
-                                        <input type="tel" id='phone' name='phone' placeholder='' required/>
+                                        {formErrors.name && <span className="error-message">{formErrors.phone}</span>}
+                                        <input type="tel" id='phone' name='phone' className={formErrors.phone ? 'error' : ''} placeholder='' required/>
+                                        
                                     </div>
                                 </div>
                             </form>
 
-                            <form action="">
+                            <form action="" onSubmit={handlePayment}>
                                 <h6 className='checkout-subtitle'>Shipping Info</h6>
                                 <div className="checkout-form-group-address">
                                     <label htmlFor="address">Address</label>
-                                    <input type="text" id='address' name='address' placeholder='' required/>
+                                    {formErrors.name && <span className="error-message">{formErrors.address}</span>}
+                                    <input type="text" id='address' name='address' className={formErrors.address ? 'error' : ''}  placeholder='' required/>
+                                   
                                 </div>
                                 <div className="form-grid">
                                     <div className="checkout-form-group">
                                         <label htmlFor="zip">Post Code</label>
-                                        <input type="text" id='zip' name='zip' placeholder='' required/>
+                                        {formErrors.name && <span className="error-message">{formErrors.postcode}</span>}
+                                        <input type="text" id='postcode' name='postcode' className={formErrors.postcode ? 'error' : ''}  placeholder='' required/>
+                                        
                                     </div>
                                     <div className="checkout-form-group">
                                         <label htmlFor="city">City</label>
-                                        <input type="text" id='city' name='city' placeholder='' required/>
+                                        {formErrors.name && <span className="error-message">{formErrors.city}</span>}
+                                        <input type="text" id='city' name='city' className={formErrors.city ? 'error' : ''}  placeholder='' required/>
+                                        
                                     </div>
                                     <div className="checkout-form-group">
                                         <label htmlFor="country">Country</label>
-                                        <input type="text" id='country' name='country' placeholder='' required/>
+                                        {formErrors.name && <span className="error-message">{formErrors.country}</span>}
+                                        <input type="text" id='country' name='country' className={formErrors.country ? 'error' : ''}  placeholder='' required/>
+                                        
                                     </div>
                                 </div>
                             </form>
 
-                            <form action="">
+                            <form action="" onSubmit={handlePayment}>
                                 <h6 className='checkout-subtitle'>Payment Details</h6>
                                 <div className="payment-method">
                                     <div className="checkout-form-group">

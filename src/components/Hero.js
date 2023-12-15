@@ -4,7 +4,7 @@ import '../styles/hero.css'
 
 const Hero = ({ products }) => {
 
-    const productName = products[3].name
+    const product = products[3]
 
     return (
         <section className='hero'>
@@ -12,9 +12,9 @@ const Hero = ({ products }) => {
                 <div className='hero-content'>
                     <div className="hero-details">
                         <span className='hero-subtitle'>New Product</span>
-                        <h1>{products[3].name}</h1>
-                        <p>{products[3].description}</p>
-                        <Button1 to={`/product/${productName}`}/>
+                        <h1>{product.name}</h1>
+                        <p>{product.description}</p>
+                        <Button1 to={`/product/${product.name}`}/>
                     </div>
                     
                 </div>

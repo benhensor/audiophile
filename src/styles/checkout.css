@@ -59,6 +59,21 @@
 
 .checkout-form-group {
     width: 100%;
+    position: relative;
+}
+
+.checkout-page input.error {
+    border: 1px solid var(--error);
+}
+
+.error-message {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--error);
+    font-size: 1.2rem;
+    margin-top: 4px;
+    text-align: right;
 }
 
 .checkout-form-group-address {
@@ -139,6 +154,10 @@
 .payment-information svg {
     width: 12rem;
     margin-right: 1.6rem;
+}
+
+.payment-information p {
+    color: var(--grey);
 }
 
 .checkout-summary-container {
