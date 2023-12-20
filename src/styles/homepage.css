@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
     text-align: center;
 }
 
@@ -13,7 +12,6 @@
     align-items: center;
     width: 100%;
     padding-bottom: 16rem;
-    margin-bottom: 20rem;
     background-color: var(--white);
 }
 

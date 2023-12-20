@@ -37,7 +37,8 @@ const CartPreview = ({ setIsCartOpen }) => {
     }
 
     const handleEditItemName = (name) => {
-        const suffixes = /Headphones|Speaker|Wireless Earphones/gi;
+        if (!name) return ''
+        const suffixes = /Headphones|Speaker|Wireless Earphones/gi
         const editedName = name.replace(suffixes, '')
         return editedName
     }
