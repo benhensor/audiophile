@@ -16,7 +16,7 @@ const Nav = ({ setIsMenuOpen }) => {
     }
 
     return (
-        <nav className='navbar'>
+        <nav>
             <ul className='navbar-list'>
                 {tabs.map(tab => {
                     return (

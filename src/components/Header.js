@@ -48,7 +48,7 @@ const Header = () => {
                 </Link>
 
                 <div className={`header-navbar ${isMenuOpen ? 'visible' : ''}`}>
-                    <nav className='navbar'>
+                    <nav >
                         <ul className='navbar-list'>
                             {tabs.map(tab => {
                                 return (
