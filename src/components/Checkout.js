@@ -26,7 +26,7 @@ const Checkout = () => {
         navigate(-1)
     }
 
-    const calulateSubtotal = () => {
+    const calculateSubtotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)
     }
 
@@ -42,7 +42,7 @@ const Checkout = () => {
         return grandTotal.toFixed(2)
     }
 
-    const subTotal = calulateSubtotal()
+    const subTotal = calculateSubtotal()
     const vat = calculateVAT()
     const grandTotal = calculateGrandTotal()
 

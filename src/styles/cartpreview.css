@@ -1,6 +1,7 @@
 .cart-preview {
     position: block;
     color: var(--dark);
+    z-index: 1000;
 }
 
 .cart-container {

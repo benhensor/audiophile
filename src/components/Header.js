@@ -30,6 +30,10 @@ const Header = () => {
         setIsMenuOpen(false)
     }
 
+    const handleClose = () => {
+        setIsCartOpen(false)
+    }
+
     return (
         <header>
             <div className="header-container">
@@ -63,9 +67,11 @@ const Header = () => {
                         <p className='header-cart-quantity'>{cartItems.length}</p>
                     </button>
                     {isCartOpen && (
-                        <div className='header-cart-preview-container'>
-                            <CartPreview setIsCartOpen={setIsCartOpen}/>
-                        </div>
+                        <>
+                            <div className='header-cart-backdrop' onClick={handleClose}></div>
+                                    <CartPreview setIsCartOpen={setIsCartOpen}/>
+                            
+                        </>                   
                     )}
                 </div>
             </div>
