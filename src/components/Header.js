@@ -53,7 +53,7 @@ const Header = () => {
                             {tabs.map(tab => {
                                 return (
                                     <li className='navbar-list-item' key={tab.name}>
-                                        <button onClick={handleClick}><Link to={tab.path}>{tab.name}</Link></button>
+                                        <Link to={tab.path}><button onClick={handleClick}>{tab.name}</button></Link>
                                     </li>
                                 )
                             })}
