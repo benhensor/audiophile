@@ -37,11 +37,11 @@ function App() {
     if (error) return <p>Error fetching products information</p>
 
     return (
-        <main className="app-container">
+        <div className="app-container">
             <CartProvider>
                 <ProductsProvider>
                     <Header />
-                        <div className="app-content">
+                        <main className="app-content">
                         
                         <Routes>
                             <Route exact path="/" element={<HomePage products={products} />} />
@@ -50,11 +50,11 @@ function App() {
                             <Route exact path="/checkout" element={<Checkout />} />
                         </Routes>
                         
-                        </div>
+                        </main>
                     <Footer />
                 </ProductsProvider>
             </CartProvider>
-        </main>
+        </div>
     );
 }
 

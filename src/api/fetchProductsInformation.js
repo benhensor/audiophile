@@ -5,7 +5,7 @@ const fetchProductsInformation = async () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(ProductsInformation)
-        }, 1000) // Simulate delay
+        }, 0) // Simulate delay
 
     })
 }
