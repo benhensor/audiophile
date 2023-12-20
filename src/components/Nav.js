@@ -21,7 +21,7 @@ const Nav = ({ setIsMenuOpen }) => {
                 {tabs.map(tab => {
                     return (
                         <li className='navbar-list-item' key={tab.name}>
-                           <Link to={tab.path}> <button onClick={handleClick}>{tab.name}</button></Link>
+                           <Link to={tab.path} onClick={handleClick}>{tab.name}</Link>
                         </li>
                     )
                 })}
