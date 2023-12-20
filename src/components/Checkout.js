@@ -194,31 +194,35 @@ const Checkout = () => {
                                 <div className="payment-method">
                                     <div className="checkout-form-group">
                                         <label htmlFor="name">Payment Method</label>
-                                        <div className="radio-input">
-                                            <input 
-                                                type="radio" 
-                                                id="eMoney" 
-                                                name="paymentMethod" 
-                                                value="eMoney"
-                                                checked={payMethod === 'eMoney'}
-                                                onChange={(e) => setPayMethod(e.target.value)}
-                                                required />
-                                            <label htmlFor="eMoney"></label>
-                                            e-Money
-                                        </div>
+                                            <label className='payment-method-label'>
+                                                <div className="radio-input">
+                                                    <input 
+                                                        type="radio" 
+                                                        id="eMoney" 
+                                                        name="paymentMethod" 
+                                                        value="eMoney"
+                                                        checked={payMethod === 'eMoney'}
+                                                        onChange={(e) => setPayMethod(e.target.value)}
+                                                        required />
+                                                    <label htmlFor="eMoney"></label>
+                                                    e-Money
+                                                </div>
+                                            </label>
                                     </div>
                                     <div className="checkout-form-group">
-                                        <div className="radio-input">
-                                            <input 
-                                                type="radio" 
-                                                id="cash" 
-                                                name="paymentMethod" 
-                                                value="cash"
-                                                onChange={(e) => setPayMethod(e.target.value)}
-                                                required />
-                                            <label htmlFor="cash"></label>
-                                            Cash on Delivery
-                                        </div>
+                                        <label className='payment-method-label'>
+                                            <div className="radio-input">
+                                                <input 
+                                                    type="radio" 
+                                                    id="cash" 
+                                                    name="paymentMethod" 
+                                                    value="cash"
+                                                    onChange={(e) => setPayMethod(e.target.value)}
+                                                    required />
+                                                <label htmlFor="cash"></label>
+                                                Cash on Delivery
+                                            </div>
+                                        </label>
                                     </div>
                                 </div>
                                 {payMethod === 'eMoney' ? (

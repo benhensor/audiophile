@@ -7,6 +7,7 @@ import '../styles/orderconfirmation.css'
 const OrderConfirmation = ({ cartItems }) => {
 
     const handleEditItemName = (name) => {
+        if (!name) return ''
         const suffixes = /Headphones|Speaker|Wireless Earphones/gi;
         const editedName = name.replace(suffixes, '')
         return editedName
